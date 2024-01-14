@@ -2,10 +2,12 @@ import { getTables } from '../../../redux/tablesRedux';
 import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
 import { useDispatch } from 'react-redux';
 import { Row, Col, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 const TablesList = () => {
   const tables = useSelector((state) => getTables(state));
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   return (
     <div>
@@ -19,8 +21,12 @@ const TablesList = () => {
               Status: <span className='fw-normal'>{table.status}</span>
             </p>
           </Col>
-          <Col xs={3} md={2} className='text-end align-items-center d-flex'>
-            <Button variant='primary' className='m-auto'>
+          <Col xs={3} md={2} className='text-end'>
+            <Button
+              variant='primary'
+              className='m-auto'
+              onClick={() => navigate(`/table/${table.id}`)}
+            >
               Show more
             </Button>
           </Col>
