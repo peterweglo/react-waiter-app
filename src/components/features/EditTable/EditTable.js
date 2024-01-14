@@ -2,11 +2,18 @@ import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getTableById } from '../../../redux/tablesRedux';
 import { Form, Row, Col, Button, Spinner } from 'react-bootstrap';
+import { useState } from 'react';
 
 const EditTable = () => {
   const { id } = useParams();
 
   const tableData = useSelector((state) => getTableById(state, id));
+  const [tableStatus, setTableStatus] = useState(tableData?.status);
+  const [peopleAmount, setPeopleAmount] = useState(tableData?.peopleAmount);
+  const [maxPeopleAmount, setMaxPeopleAmount] = useState(
+    tableData?.maxPeopleAmount
+  );
+
   console.log(tableData);
 
   return (
@@ -21,7 +28,12 @@ const EditTable = () => {
             Status:
           </Form.Label>
           <Col sm='4' lg='3'>
-            <Form.Select name='status' aria-label='Select status'>
+            <Form.Select
+              name='status'
+              aria-label='Select status'
+              value={tableStatus}
+              onChange={(e) => setTableStatus(e.target.value)}
+            >
               <option value='Free'>Free</option>
               <option value='Reserved'>Reserved</option>
               <option value='Busy'>Busy</option>
@@ -40,9 +52,10 @@ const EditTable = () => {
                   name='peopleAmount'
                   type='number'
                   min='1'
-                  max='10'
-                  placeholder='Min'
+                  max={maxPeopleAmount}
                   className='text-center'
+                  value={peopleAmount}
+                  onChange={(e) => setPeopleAmount(e.target.value)}
                 />
               </Col>
               <Col className='d-flex align-items-center justify-content-center'>
@@ -54,8 +67,9 @@ const EditTable = () => {
                   type='number'
                   min='1'
                   max='10'
-                  placeholder='Max'
                   className='text-center'
+                  value={maxPeopleAmount}
+                  onChange={(e) => setMaxPeopleAmount(e.target.value)}
                 />
               </Col>
             </Row>
