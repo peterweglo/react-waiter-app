@@ -1,0 +1,36 @@
+{
+  "tables": [
+    {
+      "id": "1",
+      "status": "Free",
+      "peopleAmount": 0,
+      "maxPeopleAmount": 0
+    },
+    {
+      "id": "2",
+      "status": "Free",
+      "peopleAmount": 0,
+      "maxPeopleAmount": 0
+    },
+    {
+      "id": "3",
+      "status": "Busy",
+      "peopleAmount": 5,
+      "maxPeopleAmount": 5,
+      "bill": "50"
+    },
+    {
+      "id": "4",
+      "status": "Free",
+      "peopleAmount": 0,
+      "maxPeopleAmount": 0
+    },
+    {
+      "id": "5",
+      "status": "Busy",
+      "peopleAmount": 5,
+      "maxPeopleAmount": 8,
+      "bill": "6"
+    }
+  ]
+}
