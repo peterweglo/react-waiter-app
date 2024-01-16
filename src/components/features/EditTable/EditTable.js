@@ -65,12 +65,11 @@ const EditTable = () => {
 
   return (
     <>
-      <div className='d-flex my-4'>
+      <div className="d-flex my-4">
         <h2>Table {id}</h2>
       </div>
-
       <Form>
-        <Form.Group as={Row} className='mb-4 mt-4'>
+        <Form.Group as={Row} className="mb-4 mt-4">
           <Form.Label
             column
             xs={3}
@@ -78,25 +77,25 @@ const EditTable = () => {
             md={1}
             lg={1}
             xl={1}
-            className='fw-bold'
+            className="fw-bold"
           >
             Status:
           </Form.Label>
           <Col xs={9} sm={7} md={7} lg={5} xl={3}>
             <Form.Select
-              name='status'
-              aria-label='Select status'
+              name="status"
+              aria-label="Select status"
               value={tableStatus}
               onChange={tableStatusHanlder}
             >
-              <option value='Free'>Free</option>
-              <option value='Reserved'>Reserved</option>
-              <option value='Busy'>Busy</option>
-              <option value='Cleaning'>Cleaning</option>
+              <option value="Free">Free</option>
+              <option value="Reserved">Reserved</option>
+              <option value="Busy">Busy</option>
+              <option value="Cleaning">Cleaning</option>
             </Form.Select>
           </Col>
         </Form.Group>
-        <Form.Group as={Row} className='mb-4 mt-4'>
+        <Form.Group as={Row} className="mb-4 mt-4">
           <Form.Label
             column
             xs={3}
@@ -104,7 +103,7 @@ const EditTable = () => {
             md={1}
             lg={1}
             xl={1}
-            className='fw-bold'
+            className="fw-bold"
           >
             People:
           </Form.Label>
@@ -112,28 +111,28 @@ const EditTable = () => {
             <Row>
               <Col xs={4} sm={3} md={3} lg={2} xl={1}>
                 <Form.Control
-                  name='peopleAmount'
-                  type='number'
-                  min='0'
+                  name="peopleAmount"
+                  type="number"
+                  min="0"
                   max={maxPeopleAmount}
-                  className='text-center'
+                  className="text-center"
                   value={peopleAmount}
                   onChange={peopleAmountHandler}
                 />
               </Col>
               <Col
                 xs={1}
-                className='d-flex align-items-center justify-content-center'
+                className="d-flex align-items-center justify-content-center"
               >
                 <span>/</span>
               </Col>
               <Col xs={4} sm={3} md={3} lg={2} xl={1}>
                 <Form.Control
-                  name='maxPeopleAmount'
-                  type='number'
-                  min='0'
-                  max='10'
-                  className='text-center'
+                  name="maxPeopleAmount"
+                  type="number"
+                  min="0"
+                  max="10"
+                  className="text-center"
                   value={maxPeopleAmount}
                   onChange={maxPeopleAmountHandler}
                 />
@@ -142,7 +141,7 @@ const EditTable = () => {
           </Col>
         </Form.Group>
         {tableStatus === 'Busy' && (
-          <Form.Group as={Row} className='my-3'>
+          <Form.Group as={Row} className="my-3">
             <Form.Label
               column
               xs={3}
@@ -150,7 +149,7 @@ const EditTable = () => {
               md={1}
               lg={1}
               xl={1}
-              className='fw-bold'
+              className="fw-bold"
             >
               Bill:
             </Form.Label>
@@ -158,23 +157,23 @@ const EditTable = () => {
               <Row>
                 <Col xs={4} sm={3} md={3} lg={2} xl={1}>
                   <Form.Control
-                    name='bill'
-                    className='text-center'
-                    type='number'
-                    min='0'
+                    name="bill"
+                    className="text-center"
+                    type="number"
+                    min="0"
                     value={bill}
                     onChange={(e) => setBill(e.target.value)}
                   />
                 </Col>
                 <Col xs={1}>
-                  <p className='my-1'>$</p>
+                  <p className="my-1">$</p>
                 </Col>
               </Row>
             </Col>
           </Form.Group>
         )}
 
-        <Button type='submit' onClick={submitHandler}>
+        <Button type="submit" onClick={submitHandler}>
           Update
         </Button>
       </Form>
