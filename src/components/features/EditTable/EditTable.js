@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { getTableById } from '../../../redux/tablesRedux';
-import { Form, Row, Col, Button, Spinner } from 'react-bootstrap';
+import { Form, Row, Col, Button } from 'react-bootstrap';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { editTableRequest } from '../../../redux/tablesRedux';
